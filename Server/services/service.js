@@ -9,11 +9,12 @@ const crawlShopee = url => {
       channel.assertQueue(q, {durable: false});
       channel.assertQueue("result", {durable: false});
       channel.sendToQueue(q, new Buffer(url));
-      console.log("Sent "+urlString);
+      console.log("Sent "+ url);
       channel.consume('result', message => {
-        console.log("[x] send", message.content.toString());
-        resolve(message.content.toString());
-      })
+        const product = JSON.parse(message.content.toString());
+        connection.close();
+        resolve(product);
+      }, {noAck: true})
     });
   });
   });
