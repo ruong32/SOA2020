@@ -3,29 +3,41 @@ import { Label, Icon, Grid, Image, Header } from 'semantic-ui-react'
 
 import './ProductItem.css'
 
-const ProductItem = () => {
+const ProductItem = (props) => {
+  const { name, price, image, rating, seller, description } = props.data
   return (
-    <Grid>
+    <Grid
+      style={{
+        marginTop: '0.75em',
+        marginBottom: '0.75em',
+        borderColor: '#000000',
+        borderRadius: '10px',
+        boxShadow: '1px 1px 2px 2px rgba(0,0,0,0.07)',
+      }}
+    >
       <Grid.Column width={4}>
-        <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' />
+        <Image
+          src={
+            image
+              ? image
+              : 'https://react.semantic-ui.com/images/wireframe/square-image.png'
+          }
+        />
       </Grid.Column>
       <Grid.Column width={9}>
         <Header style={{ marginBottom: '1em' }} as='a'>
-          Cute Dog
+          {name}
         </Header>
         <br />
-        <span className='cinema'>Điện máy Pico</span>
+        <span className='cinema'>{seller}</span>
         <br />
         <div style={{ marginTop: '1em', marginBottom: '1em' }}>
           <Label tag as='a'>
-            $10.00
+            {price + 'đ'}
           </Label>
-          <Icon color='yellow' name='star' /> 4.9
+          <Icon color='yellow' name='star' /> {rating}
         </div>
-        <p>
-          Many people also have their own barometers for what makes a cute dog. Many
-          people also have their own barometers for what makes a cute dog.
-        </p>
+        <p>{description}</p>
       </Grid.Column>
     </Grid>
   )
