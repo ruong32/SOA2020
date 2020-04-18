@@ -13,7 +13,7 @@ amqp.connect('amqp://localhost', function(err, connect) {
       var url = msg.content.toString()
       request(url, (error, response, html) => {
         if(!error){
-          fs.writeFile('shopee.html', html, 'utf-8', () => {});
+          // fs.writeFile('shopee.html', html, 'utf-8', () => {});
           const $ = cheerio.load(html);
           let product = {
             name: $("meta[property='og:title']").attr("content"),
