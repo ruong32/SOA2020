@@ -9,6 +9,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 initRoutes(app);
 
-http.createServer(app).listen(3000, 'localhost', ()=>{
-  console.log(`listening on 3000...`)
+http.createServer(app).listen(3010, 'localhost', ()=>{
+  console.log(`listening on 3010...`)
 })

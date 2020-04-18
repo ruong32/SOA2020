@@ -3,7 +3,7 @@ import ProductItem from './ProductItem'
 import { ItemGroup, Header, Segment, Loader, Image, Grid } from 'semantic-ui-react'
 
 const ProductList = (props) => {
-  const data = [1, 2, 3]
+  const { products } = props
   const { loading } = props
   return (
     <div>
@@ -11,6 +11,14 @@ const ProductList = (props) => {
       {loading ? (
         <Segment>
           <Loader active />
+          <Grid reversed='mobile vertically'>
+            <Grid.Column width={4}>
+              <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' />
+            </Grid.Column>
+            <Grid.Column width={9}>
+              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+            </Grid.Column>
+          </Grid>
           <Grid>
             <Grid.Column width={4}>
               <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' />
@@ -22,8 +30,8 @@ const ProductList = (props) => {
         </Segment>
       ) : (
         <ItemGroup>
-          {data.map((product) => (
-            <ProductItem></ProductItem>
+          {products.map((product, i) => (
+            <ProductItem key={i} data={product}></ProductItem>
           ))}
         </ItemGroup>
       )}

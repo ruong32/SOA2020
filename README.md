@@ -5,4 +5,4 @@ Hoàng Kim Minh - 17020891<br>
 Nguyễn Trọng Rưỡng - 1702996<br>
 
 <h1>Chủ đề</h1>
-Crawl thông tin sản phẩm từ trang web thương mại điện tử Shopee
+Ứng dụng RabbitMQ trong việc crawl thông tin sản phẩm từ trang web thương mại điện tử Tiki
