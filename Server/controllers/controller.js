@@ -5,10 +5,13 @@ const sendHomePage = (req, res) => {
 }
 
 const getProDuctInfo = async (req, res) => {
-  const urls = req.body.urls.match(/https:\/\/shopee.vn\S+/gi);
-  const result = urls.map(url => await services.crawlShopee(url));
-  console.log(result);
-  return res.send(`Wait`)
+  const urls = req.body.urls.match(/https:\/\/tiki.vn\S+/gi);
+  const result = [];
+  for(let i=0; i<urls.length; i++){
+    const item = await services.crawlShopee(urls[i]);
+    result.push(item);
+  }
+  return res.json(result);
 }
 
 module.exports = {
